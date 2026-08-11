@@ -2327,3 +2327,80 @@ select.form-control {
     .partner-logo img { max-height: 70px; }
     .photo-slide { width: 250px; height: 160px; }
 }
+.profile-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+}
+
+.profile-top-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    width: 100%;
+}
+
+.profile-image-wrapper {
+    flex: 0 0 45%;
+    max-width: 45%;
+}
+
+.image-frame {
+    position: relative;
+    width: 100%;
+}
+
+.profile-img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    display: block;
+}
+
+.profile-text {
+    flex: 1;
+    text-align: left;
+}
+
+.vm-container {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    width: 100%;
+    align-items: stretch;
+}
+
+.glass-card {
+    flex: 1;
+    display: flex;
+    gap: 20px;
+    text-align: left;
+    padding: 30px;
+    border-radius: 16px;
+}
+
+.mission-list, .vision-list {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.mission-list li, .vision-list li {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 992px) {
+    .profile-top-row {
+        flex-direction: column;
+    }
+    .profile-image-wrapper {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .vm-container {
+        flex-direction: column;
+    }
+}
