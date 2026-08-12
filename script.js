@@ -6,8 +6,7 @@
 function showPage(targetId, navElement, event) {
     if(event) event.preventDefault();
     
-    const toggleableIds = ['hero', 'stats', 'profile', 'program', 'legalitas', 'struktur'];
-    
+   const toggleableIds = ['hero', 'stats', 'profile', 'program', 'legalitas', 'struktur', 'sejarah'];
     // Matikan transisi body (FADE OUT)
     document.body.style.opacity = '0';
     
