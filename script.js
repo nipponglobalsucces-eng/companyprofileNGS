@@ -361,7 +361,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert("Mohon lengkapi semua kolom dengan benar sebelum mengirim pesan.");
                 return; 
             }
-            const waNumber = "6281234567890"; 
+            const waNumber = "628216161602"; 
             const waText = `Halo Admin NIPON GLOBAL SUCCES,%0A%0ASaya berminat untuk mendaftar / bertanya informasi.%0A%0A*Nama:* ${name}%0A*Usia:* ${age} Tahun%0A*No. WA:* ${phone}%0A*Minat Program:* ${subject}%0A%0A*Pesan / Riwayat Pendidikan:*%0A${message}%0A%0AMohon arahannya. Terima kasih.`;
             window.open(`https://wa.me/${waNumber}?text=${waText}`, '_blank');
         });
