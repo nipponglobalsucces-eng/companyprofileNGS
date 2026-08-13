@@ -345,7 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-   // --- FUNGSI WHATSAPP ---
+  // --- FUNGSI WHATSAPP ---
 const contactForm = document.getElementById('contactForm');
 
 if (contactForm) {
@@ -367,7 +367,7 @@ if (contactForm) {
             return;
         }
 
-        ============================
+        // ============================
         const waNumber = "628216161602";
 
         // Pesan WhatsApp
@@ -379,7 +379,7 @@ if (contactForm) {
             `*No. WA:* ${phone}%0A` +
             `*Minat Program:* ${subject}%0A%0A` +
             `*Pesan / Riwayat Pendidikan:*%0A` +
-            `${message}%0A%0A` +
+            ``${message}%0A%0A` +
             `Mohon arahannya. Terima kasih.`;
 
         // Buka WhatsApp
