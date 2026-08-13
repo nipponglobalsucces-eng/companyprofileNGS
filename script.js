@@ -3,132 +3,36 @@
    ========================================================================== */
 
 // 1. SISTEM TRANSISI HYBRID SPA (KLIK MENU DENGAN FADE)
-
-// Menyimpan posisi asli Galeri LPK agar bisa dikembalikan
-// ketika user kembali ke Beranda.
-let originalGalleryParent = null;
-let originalGalleryNextSibling = null;
-
 function showPage(targetId, navElement, event) {
     if(event) event.preventDefault();
     
-    const toggleableIds = ['hero', 'stats', 'profile', 'program', 'legalitas', 'struktur', 'sejarah'];
-
-    // Galeri LPK
-    const gallery = document.getElementById('galeri-kegiatan');
-
-    // Simpan posisi asli Galeri hanya sekali.
-    if (gallery && !originalGalleryParent) {
-        originalGalleryParent = gallery.parentNode;
-        originalGalleryNextSibling = gallery.nextSibling;
-    }
-
+   const toggleableIds = ['hero', 'stats', 'profile', 'program', 'legalitas', 'struktur', 'sejarah'];
     // Matikan transisi body (FADE OUT)
     document.body.style.opacity = '0';
     
     setTimeout(() => {
-
-        // ==============================================================
-        // BERANDA
-        // ==============================================================
-
         if (targetId === 'beranda') {
-
             toggleableIds.forEach(id => {
                 const el = document.getElementById(id);
-
                 if (el) {
                     el.style.display = 'block';
                     el.style.paddingTop = ''; 
                     el.style.minHeight = '';
                 }
             });
-
-            // Kembalikan Galeri ke posisi asli HTML
-            if (gallery && originalGalleryParent) {
-                if (originalGalleryNextSibling) {
-                    originalGalleryParent.insertBefore(
-                        gallery,
-                        originalGalleryNextSibling
-                    );
-                } else {
-                    originalGalleryParent.appendChild(gallery);
-                }
-
-                gallery.style.display = 'block';
-                gallery.style.paddingTop = '';
-                gallery.style.minHeight = '';
-            }
-
-        }
-
-        // ==============================================================
-        // MENU LAIN
-        // ==============================================================
-
-        else {
-
-            /*
-             * KHUSUS MENU GALERI LPK
-             *
-             * Saat klik menu Galeri LPK:
-             * - Semua section lain disembunyikan
-             * - Galeri ditampilkan sendiri
-             * - Galeri diberi padding seperti halaman menu lainnya
-             * - Galeri TIDAK dipindahkan ke dirinya sendiri
-             */
-
-            if (targetId === 'galeri-kegiatan') {
-
-                toggleableIds.forEach(id => {
-                    const el = document.getElementById(id);
-
-                    if (el) {
+        } else {
+            toggleableIds.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    if (id === targetId) {
+                        el.style.display = 'block';
+                        el.style.paddingTop = '150px'; 
+                        el.style.minHeight = '70vh';
+                    } else {
                         el.style.display = 'none';
                     }
-                });
-
-                if (gallery) {
-                    gallery.style.display = 'block';
-                    gallery.style.paddingTop = '150px';
-                    gallery.style.minHeight = '70vh';
                 }
-
-            }
-
-            // ==========================================================
-            // MENU LAIN SELAIN GALERI
-            // ==========================================================
-
-            else {
-
-                toggleableIds.forEach(id => {
-                    const el = document.getElementById(id);
-
-                    if (el) {
-                        if (id === targetId) {
-                            el.style.display = 'block';
-                            el.style.paddingTop = '150px'; 
-                            el.style.minHeight = '70vh';
-                        } else {
-                            el.style.display = 'none';
-                        }
-                    }
-                });
-
-                // Saat menu lain dibuka, Galeri selalu diletakkan
-                // tepat setelah konten/menu yang sedang dipilih.
-                const targetElement = document.getElementById(targetId);
-
-                if (gallery && targetElement) {
-                    gallery.style.display = 'block';
-
-                    targetElement.parentNode.insertBefore(
-                        gallery,
-                        targetElement.nextSibling
-                    );
-                }
-            }
+            });
         }
         
         // Reset class animasi agar bisa masuk ulang saat halaman terbuka
@@ -163,7 +67,6 @@ function showPage(targetId, navElement, event) {
     }
 }
 
-
 // 2. LOGIKA PENUTUPAN VERIFIKASI AWAL (CAPTCHA GATE)
 document.addEventListener('DOMContentLoaded', () => {
     const entryVerif = document.getElementById('entry-verification');
@@ -191,7 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-
 // 3. FUNGSI MENGGANTI BAHASA DARI DROPDOWN
 function setLanguage(langCode, btnText, event) {
     if(event) event.preventDefault();
@@ -218,7 +120,6 @@ function setLanguage(langCode, btnText, event) {
     }
 }
 
-
 // 4. FUNGSI BUKA/TUTUP KOTAK DROPDOWN SAAT DIKLIK
 function toggleLangDropdown(event) {
     event.preventDefault();
@@ -230,7 +131,6 @@ function toggleLangDropdown(event) {
     if(dropdown) dropdown.classList.toggle("show-lang");
     if(arrow) arrow.classList.toggle("rotate-arrow");
 }
-
 
 // 5. FUNGSI BUKA/TUTUP MODAL PROGRAM
 window.openModal = function(modalId) {
@@ -248,7 +148,6 @@ window.closeModal = function(modalId) {
         document.body.style.overflow = 'auto'; 
     }
 };
-
 
 // 6. FUNGSI LIGHTBOX (ZOOM GAMBAR SERTIFIKAT)
 window.openLightbox = function(imgSrc) {
@@ -275,7 +174,6 @@ window.closeLightbox = function() {
     }
 };
 
-
 // 7. KLIK DI LUAR ELEMEN UNTUK MENUTUP POP-UP/DROPDOWN
 window.onclick = function(event) {
     if (!event.target.closest('.dropdown-lang')) {
@@ -300,8 +198,7 @@ window.onclick = function(event) {
     if (event.target.id === 'lightbox') {
         closeLightbox();
     }
-};
-
+}
 
 // 8. FUNGSI PRELOADER (DURASI 3 DETIK)
 window.addEventListener('DOMContentLoaded', function() {
@@ -321,7 +218,6 @@ window.addEventListener('load', function() {
         }, 3000);
     }
 });
-
 
 // 9. LOGIKA UTAMA SAAT HALAMAN SELESAI DIMUAT
 document.addEventListener('DOMContentLoaded', () => {
@@ -465,15 +361,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert("Mohon lengkapi semua kolom dengan benar sebelum mengirim pesan.");
                 return; 
             }
-
             const waNumber = "628216161602"; 
-            
             const waText = `Halo Admin NIPON GLOBAL SUCCES,%0A%0ASaya berminat untuk mendaftar / bertanya informasi.%0A%0A*Nama:* ${name}%0A*Usia:* ${age} Tahun%0A*No. WA:* ${phone}%0A*Minat Program:* ${subject}%0A%0A*Pesan / Riwayat Pendidikan:*%0A${message}%0A%0AMohon arahannya. Terima kasih.`;
-
-            window.open(
-                `https://wa.me/${waNumber}?text=${waText}`,
-                '_blank'
-            );
+            window.open(`https://wa.me/${waNumber}?text=${waText}`, '_blank');
         });
     }
 });
