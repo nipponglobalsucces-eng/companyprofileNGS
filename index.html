@@ -151,15 +151,15 @@
                 </li>
                 
                 <li class="dropdown-lang">
-                    <a href="javascript:void(0)" class="nav-item lang-btn" id="lang-btn-trigger" onclick="toggleLangDropdown(event)">
-                        <span id="current-lang-icon">🇮🇩 ID</span> <span class="arrow-lang" id="arrowLang">▼</span>
-                    </a>
-                    <div class="dropdown-content-lang" id="langDropdown">
-                        <a href="javascript:void(0)" onclick="setLanguage('id', '🇮🇩 ID', event)">🇮🇩 Bahasa Indonesia</a>
-                        <a href="javascript:void(0)" onclick="setLanguage('en', '🇬🇧 EN', event)">🇬🇧 English</a>
-                        <a href="javascript:void(0)" onclick="setLanguage('jp', '🇯🇵 JP', event)">🇯🇵 日本語</a>
-                    </div>
-                </li>
+    <a href="javascript:void(0)" class="nav-item lang-btn" id="lang-btn-trigger" onclick="toggleLangDropdown(event)" aria-label="Pilih Bahasa">
+        <span id="current-lang-icon">🇮🇩 ID</span> <span class="arrow-lang" id="arrowLang">▼</span>
+    </a>
+    <div class="dropdown-content-lang" id="langDropdown">
+        <a href="javascript:void(0)" onclick="setLanguage('id', '🇮🇩 ID', event)" aria-label="Bahasa Indonesia">🇮🇩 Bahasa Indonesia</a>
+        <a href="javascript:void(0)" onclick="setLanguage('en', '🇬🇧 EN', event)" aria-label="English">🇬🇧 English</a>
+        <a href="javascript:void(0)" onclick="setLanguage('jp', '🇯🇵 JP', event)" aria-label="Japanese">🇯🇵 日本語</a>
+    </div>
+</li>
             </ul>
             <div class="menu-toggle" id="mobile-menu">
                 <span class="bar"></span>
