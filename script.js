@@ -67,33 +67,6 @@ function showPage(targetId, navElement, event) {
     }
 }
 
-// 2. LOGIKA PENUTUPAN VERIFIKASI AWAL (CAPTCHA GATE)
-document.addEventListener('DOMContentLoaded', () => {
-    const entryVerif = document.getElementById('entry-verification');
-    const captchaContainer = document.getElementById('captcha-container');
-    const captchaCheckbox = document.getElementById('captcha-checkbox');
-    
-    if(captchaContainer && entryVerif) {
-        document.body.style.overflow = 'hidden';
-        
-        captchaContainer.addEventListener('click', () => {
-            if(captchaCheckbox.classList.contains('loading') || captchaCheckbox.classList.contains('checked')) return;
-            
-            captchaCheckbox.classList.add('loading');
-            
-            setTimeout(() => {
-                captchaCheckbox.classList.remove('loading');
-                captchaCheckbox.classList.add('checked');
-                
-                setTimeout(() => {
-                    entryVerif.classList.add('fade-out');
-                    document.body.style.overflow = 'auto'; 
-                }, 800);
-            }, 1500);
-        });
-    }
-});
-
 // 3. FUNGSI MENGGANTI BAHASA DARI DROPDOWN
 function setLanguage(langCode, btnText, event) {
     if(event) event.preventDefault();
